@@ -1,2 +1,2 @@
-# laravel-store
+# Laravel Store
 Project Laravel Store
