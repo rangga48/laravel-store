@@ -48,7 +48,6 @@
 </div>
 @endsection
 
-
 @push('addon-script')
     <script>
         // AJAX DataTable
