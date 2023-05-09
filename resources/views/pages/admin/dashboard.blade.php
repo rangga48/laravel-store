@@ -8,9 +8,9 @@
           <div class="section-content section-dashboard-home" data-aos="fade-up">
             <div class="container-fluid">
               <div class="dashboard-heading">
-                <h2 class="dashboard-title">KONTOL Dashboard</h2>
+                <h2 class="dashboard-title">Dashboard</h2>
                 <p class="dashboard-subtitle">
-                  This is BWA Store Admin
+                  This is Store Admin
                 </p>
               </div>
               <div class="dashboard-content">
@@ -50,74 +50,6 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                <div class="row mt-3">
-                  <div class="col-12 mt-3">
-                    <h5 class="mb-3">Recent Transactions</h5>
-                    <a href="/dashboard-transactions-details.html" class="card card-list d-block">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img src="/images/dashboard-icon-product-1.png" alt="">
-                          </div>
-                          <div class="col-md-4">
-                            Shirup Marzzan
-                          </div>
-                          <div class="col-md-3">
-                            Miracle
-                          </div>
-                          <div class="col-md-3">
-                            12 Januari, 2023
-                          </div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img src="/images/dashboard-arrow-right.svg" alt="">
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="/dashboard-transactions-details.html" class="card card-list d-block">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img src="/images/dashboard-icon-product-2.png" alt="">
-                          </div>
-                          <div class="col-md-4">
-                            LeBrone X
-                          </div>
-                          <div class="col-md-3">
-                            Aomine
-                          </div>
-                          <div class="col-md-3">
-                            11 Januari, 2023
-                          </div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img src="/images/dashboard-arrow-right.svg" alt="">
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                    <a href="/dashboard-transactions-details.html" class="card card-list d-block">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img src="/images/dashboard-icon-product-3.png" alt="">
-                          </div>
-                          <div class="col-md-4">
-                            Soffa Lembutte
-                          </div>
-                          <div class="col-md-3">
-                            Shasa
-                          </div>
-                          <div class="col-md-3">
-                            10 Januari, 2023
-                          </div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img src="/images/dashboard-arrow-right.svg" alt="">
-                          </div>
-                        </div>
-                      </div>
-                    </a>
                   </div>
                 </div>
               </div>
