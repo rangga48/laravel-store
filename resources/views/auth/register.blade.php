@@ -42,8 +42,8 @@
                 </div>
                 <div class="form-group">
                   <label>Confirm Passowrd</label>
-                  <input id="password-confirm" type="password" class="form-control @error('password_confirm') is-invalid @enderror" name="password_confirm" required autocomplete="new-password">
-                    @error('password_confirm')
+                  <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" required autocomplete="new-password">
+                    @error('password_confirmation')
                       <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
                       </span>
@@ -76,13 +76,13 @@
                       </span>
                     @enderror
                 </div>
-                <div class="form-group">
+                <div class="form-group" v-if="is_store_open">
                   <label>Category</label>
-                  <select name="category" class="form-control">
+                  <select name="categories_id" class="form-control">
                     <option value="" disabled>Select Category</option>
-                    {{-- @foreach ( $categories as $category )
+                    @foreach ( $categories as $category )
                       <option value="{{ $category->id }}">{{ $category->name }}</option>
-                    @endforeach --}}
+                    @endforeach
                   </select>
                 </div>
                 <button type="submit" class="btn btn-success btn-block mt-4">Sign Up Now</button>
