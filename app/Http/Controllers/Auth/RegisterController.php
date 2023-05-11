@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Category;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -95,5 +96,10 @@ class RegisterController extends Controller
     public function success()
     {
         return view('auth.success');
+    }
+
+    public function check(Request $request)
+    {
+        return User::where('email', $request->email)->count() > 0 ? 'Unavailable' :"Available" ;
     }
 }
