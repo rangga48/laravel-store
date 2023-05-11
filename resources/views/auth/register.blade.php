@@ -56,7 +56,7 @@
                     </label>
                   </div>
                   <div class="custom-control custom-radio custom-control-inline">
-                    <input type="radio" class="custom-control-input" name="is_store_false" id="openStoreFalse" v-model="is_store_open" :value="false">
+                    <input type="radio" class="custom-control-input" name="is_store_open" id="openStoreFalse" v-model="is_store_open" :value="false">
                     <label for="openStoreFalse" class="custom-control-label">
                       Engga, Makasih
                     </label>
