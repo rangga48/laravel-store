@@ -11,6 +11,7 @@ use App\Models\Category;
 use Yajra\DataTables\Facades\DataTables;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Requests\Admin\ProductGalleryRequest;
+use App\Http\Requests\Admin\ProductRequest;
 use Illuminate\Support\Str;
 
 class AdminProductGalleryController extends Controller

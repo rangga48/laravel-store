@@ -11,11 +11,11 @@ use App\Http\Controllers\DashboardProductController;
 use App\Http\Controllers\DashboardTransactionController;
 use App\Http\Controllers\DashboardSettingController;
 use App\Http\Controllers\Admin\AdminDashboardController;
-use App\Http\Controllers\Admin\AdminCategoryController;
-use App\Http\Controllers\Admin\AdminUserController;
-use App\Http\Controllers\Admin\AdminProductController;
-use App\Http\Controllers\Admin\AdminProductGalleryController;
-
+use Admin\AdminCategoryController;
+use Admin\AdminUserController;
+use Admin\AdminProductController;
+use Admin\AdminProductGalleryController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,7 +52,6 @@ Route::get('/dashboard/account', [DashboardSettingController::class, 'account'])
 
 //middleware(['auth','admin'])
 Route::prefix('admin')
-    ->namespace('')
     ->group(function() {
         Route::get('/', [AdminDashboardController::class, 'index'])->name('admin-dashboard');
         Route::resource('category', (AdminCategoryController::class));
