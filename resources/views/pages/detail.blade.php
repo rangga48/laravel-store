@@ -130,17 +130,17 @@
     <script src="/vendor/vue/vue.js"></script>
     <script>
       var gallery = new Vue({
-        el:"#gallery",
+        el: "#gallery",
         mounted() {
           AOS.init();
         },
         data: {
           activePhoto: 1,
           photos: [
-            @foreach ( $product->galleries as $gallery )
+            @foreach ($product->galleries as $gallery)
             {
               id: {{ $gallery->id }},
-              url: "{{ Storage::url($gallery->photo) }}",
+              url: "{{ Storage::url($gallery->photos) }}",
             },
             @endforeach
           ],
