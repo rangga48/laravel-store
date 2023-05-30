@@ -27,12 +27,12 @@
             <img src="/images/dashboard-store-logo.svg" alt="" class="my-4">
           </div>
           <div class="list-group list-group-flush">
-            <a href="/dashboard.html" class="list-group-item list-group-item-action active">Dashboard</a>
-            <a href="/dashboard-products.html" class="list-group-item list-group-item-action">My Products</a>
-            <a href="/dashboard-transactions.html" class="list-group-item list-group-item-action">Transactions</a>
-            <a href="/dashboard-settings.html" class="list-group-item list-group-item-action">Store Settings</a>
-            <a href="/dashboard-account.html" class="list-group-item list-group-item-action">My Account</a>
-            <a href="/index.html" class="list-group-item list-group-item-action">Sign Out</a>
+            <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard')) ? 'active' : '' }}">Dashboard</a>
+            <a href="{{ route('dashboard-product') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/product*')) ? 'active' : '' }}">My Products</a>
+            <a href="{{ route('dashboard-transaction') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/transaction*')) ? 'active' : '' }}">Transactions</a>
+            <a href="{{ route('dashboard-setting-store') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/setting*')) ? 'active' : '' }}">Store Settings</a>
+            <a href="{{ route('dashboard-setting-account') }}" class="list-group-item list-group-item-action {{ (request()->is('dashboard/account*')) ? 'active' : '' }}">My Account</a>
+            <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="list-group-item list-group-item-action">Sign Out</a>
           </div>
         </div>
 
@@ -52,19 +52,29 @@
                 <ul class="navbar-nav d-none d-lg-flex ml-auto">
                     <li class="nav-item dropdown">
                       <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown">
-                        <img src="/images/icon-user.png" alt="" class="rounded-circle mr-2 profile-picture"> Hi, Miracle
+                        <img src="/images/icon-user.png" alt="" class="rounded-circle mr-2 profile-picture"> Hi, {{ Auth::user()->name }}
                       </a>
                       <div class="dropdown-menu">
-                        <a href="/dashboard.html" class="dropdown-item">Dashboard</a>
-                        <a href="/dashboard-account.html" class="dropdown-item">Settings</a>
+                        <a href="{{ route('dashboard') }}" class="dropdown-item">Dashboard</a>
+                        <a href="{{ route('dashboard-setting-account') }}" class="dropdown-item">Settings</a>
                         <div class="dropdown-item"></div>
-                        <a href="/" class="dropdown-item">Logout</a>
+                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="dropdown-item">Logout</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                        </form>
                       </div>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link d-inline-block mt-2">
-                        <img src="/images/icon-cart-filled.svg" alt="">
-                        <div class="card-badge">3</div>
+                      <a href="{{ route('cart') }}" class="nav-link d-inline-block mt-2">
+                        @php 
+                          $carts = \App\Models\Cart::where('users_id', Auth::user()->id)->count();
+                        @endphp
+                        @if($carts > 0)
+                          <img src="/images/icon-cart-filled.svg" alt="">
+                          <div class="card-badge">{{ $carts }}</div>
+                        @else
+                          <img src="/images/icon-cart-empty.svg" alt="">
+                        @endif
                       </a>
                     </li>
                 </ul>
@@ -73,7 +83,7 @@
                 <ul class="navbar-nav d-block d-lg-none">
                   <li class="nav-item">
                     <a href="#" class="nav-link">
-                      Hi, Miracle
+                      Hi, {{ Auth::user()->name }}
                     </a>
                   </li>
                   <li class="nav-item">
