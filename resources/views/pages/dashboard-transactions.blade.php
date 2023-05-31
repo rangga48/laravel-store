@@ -25,73 +25,56 @@
                       </li>
                     </ul>
                     <div class="tab-content" id="pills-tabContent">
-                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                        
-                    <a href="/dashboard-transactions-details.html" class="card card-list d-block">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img src="/images/dashboard-icon-product-1.png" alt="">
-                          </div>
-                          <div class="col-md-4">
-                            Shirup Marzzan
-                          </div>
-                          <div class="col-md-3">
-                            Miracle
-                          </div>
-                          <div class="col-md-3">
-                            12 Januari, 2023
-                          </div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img src="/images/dashboard-arrow-right.svg" alt="">
-                          </div>
-                        </div>
+                      <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">                     
+                        @foreach($sellTransaction as $transaction)
+                          <a href="{{ route('dashboard-transaction-detail', $transaction->id) }}" class="card card-list d-block">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-1">
+                                  <img src="{{ Storage::url($transaction->product->galleries->first()->photos ?? '') }}" class="w-50">
+                                </div>
+                                <div class="col-md-4">
+                                  {{ $transaction->product->name }}
+                                </div>
+                                <div class="col-md-3">
+                                  {{ $transaction->product->user->store_name }}
+                                </div>
+                                <div class="col-md-3">
+                                  {{ $transaction->created_at }}
+                                </div>
+                                <div class="col-md-1 d-none d-md-block">
+                                  <img src="/images/dashboard-arrow-right.svg" alt="">
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        @endforeach
                       </div>
-                    </a>
-                    <a href="/dashboard-transactions-details.html" class="card card-list d-block">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img src="/images/dashboard-icon-product-2.png" alt="">
-                          </div>
-                          <div class="col-md-4">
-                            LeBrone X
-                          </div>
-                          <div class="col-md-3">
-                            Aomine
-                          </div>
-                          <div class="col-md-3">
-                            11 Januari, 2023
-                          </div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img src="/images/dashboard-arrow-right.svg" alt="">
-                          </div>
-                        </div>
+                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                        @foreach($buyTransaction as $transaction)
+                          <a href="{{ route('dashboard-transaction-detail', $transaction->id) }}" class="card card-list d-block">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-1">
+                                  <img src="{{ Storage::url($transaction->product->galleries->first()->photos ?? '') }}" class="w-50">
+                                </div>
+                                <div class="col-md-4">
+                                  {{ $transaction->product->name }}
+                                </div>
+                                <div class="col-md-3">
+                                  {{ $transaction->product->user->store_name }}
+                                </div>
+                                <div class="col-md-3">
+                                  {{ $transaction->created_at }}
+                                </div>
+                                <div class="col-md-1 d-none d-md-block">
+                                  <img src="/images/dashboard-arrow-right.svg" alt="">
+                                </div>
+                              </div>
+                            </div>
+                          </a>
+                        @endforeach
                       </div>
-                    </a>
-                    <a href="/dashboard-transactions-details.html" class="card card-list d-block">
-                      <div class="card-body">
-                        <div class="row">
-                          <div class="col-md-1">
-                            <img src="/images/dashboard-icon-product-3.png" alt="">
-                          </div>
-                          <div class="col-md-4">
-                            Soffa Lembutte
-                          </div>
-                          <div class="col-md-3">
-                            Shasa
-                          </div>
-                          <div class="col-md-3">
-                            10 Januari, 2023
-                          </div>
-                          <div class="col-md-1 d-none d-md-block">
-                            <img src="/images/dashboard-arrow-right.svg" alt="">
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                      </div>
-                      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
                     </div>
                   </div>
                 </div>
