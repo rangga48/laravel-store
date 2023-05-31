@@ -16,6 +16,7 @@ use Admin\AdminCategoryController;
 use Admin\AdminUserController;
 use Admin\AdminProductController;
 use Admin\AdminProductGalleryController;
+use Admin\AdminTransactionController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -79,6 +80,7 @@ Route::prefix('admin')
         Route::resource('user', (AdminUserController::class));
         Route::resource('product', (AdminProductController::class));
         Route::resource('product-gallery', (AdminProductGalleryController::class));
+        Route::resource('transaction', (AdminTransactionController::class));
     });
 
 Auth::routes();
